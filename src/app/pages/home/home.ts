@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RecipesService } from '../../services/recipes.service';
-import { RecipeCard } from '../../shared/recipe-card/recipe-card';
 import { Recipe } from '../../models/recipe';
 import { debounceTime, distinctUntilChanged, Subject, switchMap } from 'rxjs';
 import { RouterLink } from '@angular/router';

@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { RecipesService } from '../../services/recipes.service';
 import { Recipe } from '../../models/recipe';
-import { Navbar } from '../../shared/navbar/navbar';
 
 @Component({
   selector: 'app-recipe-detail',
   standalone: true,
-  imports: [CommonModule, Navbar, RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './recipe-detail.html'
 })
 export class RecipeDetail implements OnInit {
