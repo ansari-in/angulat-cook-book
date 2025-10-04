@@ -74,7 +74,6 @@ src/
        password: 'emilyspass',
      })
    });
-````
 
 2. **Store Tokens in localStorage**
 
@@ -126,7 +125,7 @@ Visit 👉 [http://localhost:4200](http://localhost:4200)
 
 ## 👨‍💻 Developed By
 
-**Ansari Intesab**
+**Ansari Intesab** Just for assignment. + with help of Ai
 © 2025 – All Rights Reserved
 
 ---
