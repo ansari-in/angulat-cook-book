@@ -1,59 +1,178 @@
-# DummyRecipes
+---
+title: '10. Dynamic Angular Website with DummyJSON Users API'
+description: 'Solve MCA-420 Lab Assignment Q10 - Build a small Angular SPA demonstrating login, signup, authentication, and token storage using DummyJSON API.'
+---
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
+# Q10. Design a Dynamic Website Demonstrating Web Technologies (Angular + Bootstrap + JSON)
 
-## Development server
+**Question 10:**  
+_Design a dynamic website using HTML, JavaScript, Bootstrap, Angular (standalone components)._  
 
-To start a local development server, run:
+Below is a compact Angular SPA demonstrating:
+
+- Angular standalone components & routing
+- Bootstrap 5 forms and layout
+- DummyJSON `/users` API integration for login & signup
+- Auth token stored in `localStorage`
+- Navbar showing dynamic links (`Login/Signup` vs `Profile/Logout`)
+- Auto redirect after login & logout
+- Angular Guard setup for future protected routes
+
+---
 
 ```bash
+|-- README.md
+|-- angular.json
+|-- firebase.json
+|-- package-lock.json
+|-- package.json
+|-- public
+|   |-- cooking.ico
+|   |-- favicon.ico
+|   `-- index.html
+|-- src
+|   |-- app
+|   |   |-- app
+|   |   |   |-- auth
+|   |   |   |   |-- login
+|   |   |   |   |   |-- login.html
+|   |   |   |   |   |-- login.scss
+|   |   |   |   |   |-- login.spec.ts
+|   |   |   |   |   `-- login.ts
+|   |   |   |   `-- signup
+|   |   |   |       |-- signup.html
+|   |   |   |       |-- signup.scss
+|   |   |   |       |-- signup.spec.ts
+|   |   |   |       `-- signup.ts
+|   |   |   |-- components
+|   |   |   |   `-- navbar
+|   |   |   |       |-- navbar.html
+|   |   |   |       |-- navbar.scss
+|   |   |   |       |-- navbar.spec.ts
+|   |   |   |       `-- navbar.ts
+|   |   |   |-- guards
+|   |   |   |   `-- auth-guard.ts
+|   |   |   |-- models
+|   |   |   |   |-- user.model.spec.ts
+|   |   |   |   `-- user.model.ts
+|   |   |   `-- services
+|   |   |       |-- auth.spec.ts
+|   |   |       `-- auth.ts
+|   |   |-- app.config.ts
+|   |   |-- app.html
+|   |   |-- app.routes.ts
+|   |   |-- app.scss
+|   |   |-- app.spec.ts
+|   |   |-- app.ts
+|   |   |-- models
+|   |   |   `-- recipe.ts
+|   |   |-- pages
+|   |   |   |-- home
+|   |   |   |   |-- home.html
+|   |   |   |   |-- home.scss
+|   |   |   |   `-- home.ts
+|   |   |   `-- recipe-detail
+|   |   |       |-- recipe-detail.html
+|   |   |       |-- recipe-detail.scss
+|   |   |       `-- recipe-detail.ts
+|   |   |-- services
+|   |   |   |-- recipes.service.ts
+|   |   |   |-- recipes.spec.ts
+|   |   |   `-- recipes.ts
+|   |   `-- shared
+|   |       |-- navbar
+|   |       |   |-- navbar.html
+|   |       |   |-- navbar.scss
+|   |       |   `-- navbar.ts
+|   |       `-- recipe-card
+|   |           |-- recipe-card.html
+|   |           |-- recipe-card.scss
+|   |           `-- recipe-card.ts
+|   |-- index.html
+|   |-- main.ts
+|   `-- styles.scss
+|-- tsconfig.app.json
+|-- tsconfig.json
+`-- tsconfig.spec.json
+
+```
+
+> Full project source code available on [GitHub](https://github.com/ansari-in/angulat-cook-book)
+
+
+
+---
+
+## Key Files
+
+### `auth.service.ts`
+
+Handles:
+
+* Login (DummyJSON `/auth/login`)
+* Signup (DummyJSON `/users/add`)
+* Token management (`localStorage`)
+
+### `login.ts` & `signup.ts`
+
+* Angular forms with Bootstrap
+* Calls `auth.service` methods
+* Redirects on success
+
+### `navbar.ts`
+
+* Shows `Login/Signup` if no token
+* Shows `Profile/Logout` if token exists
+
+---
+
+## Demo / Output
+
+* Login & Signup pages
+* Navbar links change dynamically
+* Token saved in `localStorage`
+* Redirects after login/logout
+
+<iframe
+  src="https://cookbook-angular.web.app"
+  width="100%"
+  height="900"
+  allowFullScreen
+  style={{
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    margin: '20px 0px',
+    boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.2)',
+  }}
+></iframe>
+
+---
+
+## How to Run / Integrate
+
+```bash
+git clone https://github.com/ansari-in/angulat-cook-book
+cd angulat-cook-book
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+* Navigate to `➜Local:` `http://localhost:4200/`
+* Test login, signup, navbar updates
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Notes (for grading / write-up)
 
-```bash
-ng generate component component-name
-```
+* **Why this demonstrates web technologies:**
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+  * Angular standalone components
+  * Bootstrap forms & responsive design
+  * API integration & async HTTP calls
+  * Client-side auth token management
+  * Dynamic DOM updates based on login state
 
-```bash
-ng generate --help
-```
+* **Limitations:**
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+  * DummyJSON is a fake API; real authentication not persistent
+  * Auth guard prepared but not fully implemented yet
