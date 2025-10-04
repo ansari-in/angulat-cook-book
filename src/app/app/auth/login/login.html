@@ -14,8 +14,8 @@
       <button class="btn btn-primary w-100" [disabled]="loading">
         {{ loading ? 'Logging in...' : 'Login' }}
       </button>
-
       <p *ngIf="error" class="text-danger mt-3 text-center">{{ error }}</p>
+            <p class="text-secondary mt-3 text-center">I Don't have an account <a routerLink="/signup" role="button" class="text-primary">Sign Up</a></p>
     </form>
   </div>
 </div>
