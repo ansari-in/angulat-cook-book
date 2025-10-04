@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dummy-recipes": {
+    "cook-book": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -62,10 +62,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "dummy-recipes:build:production"
+              "buildTarget": "cook-book:build:production"
             },
             "development": {
-              "buildTarget": "dummy-recipes:build:development"
+              "buildTarget": "cook-book:build:development"
             }
           },
           "defaultConfiguration": "development"

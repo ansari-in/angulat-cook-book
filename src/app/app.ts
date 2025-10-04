@@ -10,5 +10,5 @@ import { Navbar } from "./shared/navbar/navbar";
 })
 export class App {
   currentYear = new Date().getFullYear();
-  protected readonly title = signal('dummy-recipes');
+  protected readonly title = signal('cook-book');
 }
