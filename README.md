@@ -1,141 +1,98 @@
----
-title: '10. Dynamic Angular Website with DummyJSON Users API'
-description: 'Solve MCA-420 Lab Assignment Q10 - Build a small Angular SPA demonstrating login, signup, authentication, and token storage using DummyJSON API.'
----
+# 🍳 Dummy Recipes – Angular + DummyJSON Auth App
 
-# Q10. Design a Dynamic Website Demonstrating Web Technologies (Angular + Bootstrap + JSON)
-
-**Question 10:**  
-_Design a dynamic website using HTML, JavaScript, Bootstrap, Angular (standalone components)._  
-
-Below is a compact Angular SPA demonstrating:
-
-- Angular standalone components & routing
-- Bootstrap 5 forms and layout
-- DummyJSON `/users` API integration for login & signup
-- Auth token stored in `localStorage`
-- Navbar showing dynamic links (`Login/Signup` vs `Profile/Logout`)
-- Auto redirect after login & logout
-- Angular Guard setup for future protected routes
+> A simple **Angular (Standalone)** + **Bootstrap 5** project that demonstrates **user authentication** and **dynamic content** using the [DummyJSON API](https://dummyjson.com/docs/users) & [Auth API](https://dummyjson.com/docs/auth).
 
 ---
 
-```bash
-|-- README.md
-|-- angular.json
-|-- firebase.json
-|-- package-lock.json
-|-- package.json
-|-- public
-|   |-- cooking.ico
-|   |-- favicon.ico
-|   `-- index.html
-|-- src
-|   |-- app
-|   |   |-- app
-|   |   |   |-- auth
-|   |   |   |   |-- login
-|   |   |   |   |   |-- login.html
-|   |   |   |   |   |-- login.scss
-|   |   |   |   |   |-- login.spec.ts
-|   |   |   |   |   `-- login.ts
-|   |   |   |   `-- signup
-|   |   |   |       |-- signup.html
-|   |   |   |       |-- signup.scss
-|   |   |   |       |-- signup.spec.ts
-|   |   |   |       `-- signup.ts
-|   |   |   |-- components
-|   |   |   |   `-- navbar
-|   |   |   |       |-- navbar.html
-|   |   |   |       |-- navbar.scss
-|   |   |   |       |-- navbar.spec.ts
-|   |   |   |       `-- navbar.ts
-|   |   |   |-- guards
-|   |   |   |   `-- auth-guard.ts
-|   |   |   |-- models
-|   |   |   |   |-- user.model.spec.ts
-|   |   |   |   `-- user.model.ts
-|   |   |   `-- services
-|   |   |       |-- auth.spec.ts
-|   |   |       `-- auth.ts
-|   |   |-- app.config.ts
-|   |   |-- app.html
-|   |   |-- app.routes.ts
-|   |   |-- app.scss
-|   |   |-- app.spec.ts
-|   |   |-- app.ts
-|   |   |-- models
-|   |   |   `-- recipe.ts
-|   |   |-- pages
-|   |   |   |-- home
-|   |   |   |   |-- home.html
-|   |   |   |   |-- home.scss
-|   |   |   |   `-- home.ts
-|   |   |   `-- recipe-detail
-|   |   |       |-- recipe-detail.html
-|   |   |       |-- recipe-detail.scss
-|   |   |       `-- recipe-detail.ts
-|   |   |-- services
-|   |   |   |-- recipes.service.ts
-|   |   |   |-- recipes.spec.ts
-|   |   |   `-- recipes.ts
-|   |   `-- shared
-|   |       |-- navbar
-|   |       |   |-- navbar.html
-|   |       |   |-- navbar.scss
-|   |       |   `-- navbar.ts
-|   |       `-- recipe-card
-|   |           |-- recipe-card.html
-|   |           |-- recipe-card.scss
-|   |           `-- recipe-card.ts
-|   |-- index.html
-|   |-- main.ts
-|   `-- styles.scss
-|-- tsconfig.app.json
-|-- tsconfig.json
-`-- tsconfig.spec.json
+![App Preview](./public/cooking.png)
+
+---
+
+## 🚀 Features
+
+✅ Built with **Angular (Standalone Components)**  
+✅ Styled using **Bootstrap 5.2**  
+✅ Integrated with **DummyJSON REST APIs**  
+✅ Includes **Login** & **Signup** pages  
+✅ Uses **JWT Tokens** (stored in `localStorage`)  
+✅ Dynamic Navbar: `Login/Signup` → `Profile/Logout`  
+✅ Auto Redirect after Login & Logout  
+✅ Prepared **Auth Guard** for protected routes  
+
+---
+
+## 🧩 Tech Stack
+
+| Technology | Purpose |
+|-------------|----------|
+| **Angular 18+** | Frontend Framework |
+| **Bootstrap 5.2** | Styling & Responsive Layout |
+| **TypeScript** | Logic & Type Safety |
+| **DummyJSON API** | Authentication & User Data |
+| **LocalStorage** | Token Persistence |
+
+---
+
+## 📁 Project Structure
 
 ```
 
-> Full project source code available on [GitHub](https://github.com/ansari-in/angulat-cook-book)
+src/
+├── app/
+│   ├── auth/
+│   │   ├── login/
+│   │   └── signup/
+│   ├── components/
+│   │   └── navbar/
+│   ├── services/
+│   │   └── auth.service.ts
+│   ├── guards/
+│   │   └── auth-guard.ts
+│   ├── pages/
+│   │   ├── home/
+│   │   └── recipe-detail/
+│   └── shared/
+│       ├── navbar/
+│       └── recipe-card/
+└── assets/
 
-
-
----
-
-## Key Files
-
-### `auth.service.ts`
-
-Handles:
-
-* Login (DummyJSON `/auth/login`)
-* Signup (DummyJSON `/users/add`)
-* Token management (`localStorage`)
-
-### `login.ts` & `signup.ts`
-
-* Angular forms with Bootstrap
-* Calls `auth.service` methods
-* Redirects on success
-
-### `navbar.ts`
-
-* Shows `Login/Signup` if no token
-* Shows `Profile/Logout` if token exists
+````
 
 ---
 
-## Demo / Output
+## 🧠 How It Works
 
-* Login & Signup pages
-* Navbar links change dynamically
-* Token saved in `localStorage`
-* Redirects after login/logout
+### 🔹 Authentication Flow
+
+1. **Login User**
+   ```ts
+   fetch('https://dummyjson.com/user/login', {
+     method: 'POST',
+     headers: { 'Content-Type': 'application/json' },
+     body: JSON.stringify({
+       username: 'emilys',
+       password: 'emilyspass',
+     })
+   });
+````
+
+2. **Store Tokens in localStorage**
+
+   ```ts
+   localStorage.setItem('accessToken', data.accessToken);
+   ```
+
+3. **Get Current Authenticated User**
+
+   ```ts
+   fetch('https://dummyjson.com/user/me', {
+     headers: { Authorization: `Bearer ${token}` }
+   });
+   ```
 
 ---
 
-## How to Run / Integrate
+## 💻 Setup & Run
 
 ```bash
 git clone https://github.com/ansari-in/angulat-cook-book
@@ -144,26 +101,51 @@ npm install
 ng serve
 ```
 
-* Navigate to `➜Local:` `http://localhost:4200/`
-* Test login, signup, navbar updates
+Visit 👉 [http://localhost:4200](http://localhost:4200)
 
 ---
 
-## Notes (for grading / write-up)
+## 🧩 Key Files
 
-* **Why this demonstrates web technologies:**
-
-  * Angular standalone components
-  * Bootstrap forms & responsive design
-  * API integration & async HTTP calls
-  * Client-side auth token management
-  * Dynamic DOM updates based on login state
-
-* **Limitations:**
-
-  * DummyJSON is a fake API; real authentication not persistent
-  * Auth guard prepared but not fully implemented yet
+| File                     | Purpose                                 |
+| ------------------------ | --------------------------------------- |
+| `auth.service.ts`        | Handles Login, Signup, Token Management |
+| `login.ts` / `signup.ts` | Bootstrap Forms + Auth Logic            |
+| `navbar.ts`              | Dynamic Navigation Links                |
+| `auth-guard.ts`          | Route Protection                        |
+| `recipe-card.ts`         | Displays Recipes with Bootstrap Cards   |
 
 ---
-- [Demo Link](https://cookbook-angular.web.app) - https://cookbook-angular.web.app
-- [Demo2 Link](https://cookbook.intesab.live) - https://cookbook.intesab.live/
+
+## 🌐 Live Demo
+
+🔹 [Demo 1 (Firebase)](https://cookbook-angular.web.app)
+🔹 [Demo 2 (Custom Domain)](https://cookbook.intesab.live)
+
+---
+
+## 👨‍💻 Developed By
+
+**Ansari Intesab**
+© 2025 – All Rights Reserved
+
+---
+
+## 🏁 Notes (For Evaluation)
+
+* Demonstrates **Web Technologies**:
+
+  * Angular Standalone Components
+  * Bootstrap 5 Responsive Design
+  * REST API Integration
+  * Token-based Authentication
+  * Client-side Dynamic Rendering
+* **Limitations**:
+
+  * DummyJSON API is mock-based (non-persistent)
+  * AuthGuard implementation is minimal (demo purpose)
+
+---
+
+⭐ **If you like this project, give it a star on GitHub!**
+[👉 Visit Repository](https://github.com/ansari-in/angulat-cook-book)
