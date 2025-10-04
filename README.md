@@ -165,5 +165,5 @@ ng serve
   * Auth guard prepared but not fully implemented yet
 
 ---
-[Demo Link](https://cookbook-angular.web.app) - https://cookbook-angular.web.app
-[Demo2 Link](https://cookbook.intesab.live) - https://cookbook.intesab.live/
+- [Demo Link](https://cookbook-angular.web.app) - https://cookbook-angular.web.app
+- [Demo2 Link](https://cookbook.intesab.live) - https://cookbook.intesab.live/
