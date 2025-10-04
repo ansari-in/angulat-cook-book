@@ -133,19 +133,6 @@ Handles:
 * Token saved in `localStorage`
 * Redirects after login/logout
 
-<iframe
-  src="https://cookbook-angular.web.app"
-  width="100%"
-  height="900"
-  allowFullScreen
-  style={{
-    border: '1px solid #ccc',
-    borderRadius: '8px',
-    margin: '20px 0px',
-    boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.2)',
-  }}
-></iframe>
-
 ---
 
 ## How to Run / Integrate
@@ -176,3 +163,7 @@ ng serve
 
   * DummyJSON is a fake API; real authentication not persistent
   * Auth guard prepared but not fully implemented yet
+
+---
+[Demo Link](https://cookbook-angular.web.app) - https://cookbook-angular.web.app
+[Demo2 Link](https://cookbook.intesab.live) - https://cookbook.intesab.live/
