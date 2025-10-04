@@ -50,3 +50,5 @@ Thumbs.db
 # Firebase config
 firebase.json
 .firebaserc
+
+.vscode/
