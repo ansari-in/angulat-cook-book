@@ -1,1 +1,134 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/bootstrap";
+
+:root{
+  --bg: #071021;
+  --card: #0f1a2b;
+  --muted: #cbd5e1;
+  --accent: #ff7a59;
+  --accent-2:#6ad1ff;
+  --glass: rgba(255,255,255,0.03);
+}
+
+body {
+  background: linear-gradient(180deg,#041026, #071327);
+  color: var(--muted);
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* NAVBAR */
+.navbar-custom {
+  background: linear-gradient(90deg, rgba(255,122,89,0.08), rgba(106,209,255,0.02));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+.brand {
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+/* SEARCH / TAGS area */
+.tags-container {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: .25rem;
+}
+.tags-container::-webkit-scrollbar{ height:8px; }
+.tags-container::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.06); border-radius:8px;}
+
+/* TAG BUTTONS */
+.tag-btn {
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: .82rem;
+  border: 1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.0));
+  color: var(--muted);
+}
+.tag-btn.active {
+  background: linear-gradient(90deg,var(--accent), #ff5b3a);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(255,122,89,0.08);
+  border: none;
+}
+
+/* CARD */
+.card.recipe {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card.recipe:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(2,6,23,0.6);
+}
+.card.recipe .card-img-top {
+  height: 170px;
+  object-fit: cover;
+}
+.card.recipe .card-body .title {
+  color: #fff;
+  font-weight: 600;
+}
+.card.recipe .card-body .meta {
+  font-size: .82rem;
+  color: #9fb2c9;
+}
+
+/* make entire card clickable */
+.card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* RECIPE DETAIL */
+.recipe-hero {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border-radius: 14px;
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.recipe-hero img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* badges for tags */
+.badge-tag {
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* footer */
+.site-footer{
+  margin-top: 3.5rem;
+  padding: 1.6rem 0;
+  color: #9fb2c9;
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+.recipe-steps .card {
+  background-color: var(--card);
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+}
+
+
+/* responsive tweaks */
+@media (min-width: 992px) {
+  .recipe-steps {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  .recipe-steps .left, .recipe-steps .right { flex: 1; }
+}
